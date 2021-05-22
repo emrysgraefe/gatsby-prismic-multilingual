@@ -1,0 +1,89 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title",
+        "placeholder" : "Title"
+      }
+    },
+    "header_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Header image"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "project_list" : [ ]
+        },
+        "choices" : {
+          "project_list" : {
+            "type" : "Slice",
+            "fieldset" : "Project List",
+            "description" : "A list of projects",
+            "icon" : "art_track",
+            "display" : "list",
+            "non-repeat" : {
+              "section_label" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading5",
+                  "label" : "Section label",
+                  "placeholder" : "Section label"
+                }
+              },
+              "section_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Section Title",
+                  "placeholder" : "Section title"
+                }
+              }
+            },
+            "repeat" : {
+              "project_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "project image"
+                }
+              },
+              "project_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Project title",
+                  "placeholder" : "Project title"
+                }
+              },
+              "project_brief" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Project brief",
+                  "placeholder" : "project brief"
+                }
+              },
+              "project_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Project link",
+                  "placeholder" : "Project link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug",
+        "placeholder": "Slug"
+      }
+    },
+    "label": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Label"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Page title"
+      }
+    },
+    "header_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Header image"
+      }
+    },
+    "page_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "heading2",
+        "label": "Page description",
+        "placeholder": "Page description"
+      }
+    },
+    "content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Content",
+        "placeholder": "Content"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "services": []
+        },
+        "choices": {
+          "services": {
+            "type": "Slice",
+            "fieldset": "Services",
+            "description": "A list of services provided",
+            "icon": "face",
+            "display": "grid",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Title",
+                  "placeholder": "Title"
+                }
+              }
+            },
+            "repeat": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Icon"
+                }
+              },
+              "service_title": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "heading3",
+                  "label": "Service title",
+                  "placeholder": "Title"
+                }
+              },
+              "service_description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Service description",
+                  "placeholder": "description"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

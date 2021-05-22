@@ -1,0 +1,41 @@
+{
+  "Main" : {
+    "logo" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Logo"
+      }
+    },
+    "logo_alt" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Logo alt",
+        "placeholder" : "Alt"
+      }
+    },
+    "links" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "label" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Label",
+              "placeholder" : "Label"
+            }
+          },
+          "link" : {
+            "type" : "Link",
+            "config" : {
+              "label" : "Link",
+              "placeholder" : "Link"
+            }
+          }
+        },
+        "label" : "Links"
+      }
+    }
+  }
+}

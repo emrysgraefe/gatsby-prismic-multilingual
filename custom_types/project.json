@@ -1,0 +1,112 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug",
+        "placeholder": "Slug"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Title"
+      }
+    },
+    "header_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Header Image"
+      }
+    },
+    "description_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Description title",
+        "placeholder": "Description title"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "description",
+        "placeholder": "description"
+      }
+    },
+    "timeline_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Timeline title",
+        "placeholder": "When"
+      }
+    },
+    "timeline": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Timeline",
+        "placeholder": "Timeline"
+      }
+    },
+    "team_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Team Title",
+        "placeholder": "Who"
+      }
+    },
+    "team": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Team",
+        "placeholder": "Team"
+      }
+    },
+    "content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Content",
+        "placeholder": "Content"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "wide_image": []
+        },
+        "choices": {
+          "wide_image": {
+            "type": "Slice",
+            "fieldset": "Project Image Gallery",
+            "description": "Gallery of images to display a project",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

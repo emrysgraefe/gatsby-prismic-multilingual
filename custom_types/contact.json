@@ -1,0 +1,164 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug",
+        "placeholder": "slug"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Title"
+      }
+    },
+    "header_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Header Image"
+      }
+    },
+    "offices_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Offices title",
+        "placeholder": "Offices title"
+      }
+    },
+    "offices_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Offices description",
+        "placeholder": "Offices description"
+      }
+    },
+    "address_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Address title",
+        "placeholder": "Address title"
+      }
+    },
+    "address": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong",
+        "label": "Address(es)",
+        "placeholder": "Addresses"
+      }
+    },
+    "hours_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Hours title",
+        "placeholder": "Hours title"
+      }
+    },
+    "hours_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Hours description",
+        "placeholder": "Hours"
+      }
+    },
+    "contact_info_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Contact info title",
+        "placeholder": "Contact info title"
+      }
+    },
+    "contact_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong",
+        "label": "Contact info",
+        "placeholder": "Contact info"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "contact_form": []
+        },
+        "choices": {
+          "contact_form": {
+            "type": "Slice",
+            "fieldset": "Contact Form",
+            "description": "Insert a contact form on your page",
+            "icon": "message",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Title",
+                  "placeholder": "Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "content",
+                  "placeholder": "Content"
+                }
+              },
+              "submit_button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Submit Button Text",
+                  "placeholder": "Submit"
+                }
+              }
+            },
+            "repeat": {
+              "field_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Field name",
+                  "placeholder": "Field name"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Required"
+                }
+              },
+              "field_type": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "text",
+                    "email",
+                    "phone",
+                    "textarea"
+                  ],
+                  "default_value": "text",
+                  "label": "Field type",
+                  "placeholder": "Field type"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
