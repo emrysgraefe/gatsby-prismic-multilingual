@@ -1,5 +1,5 @@
+<img align="center" src="https://rubiconstrategy.com/static/28e4d743575535207b895c64f41eac18/53973/logo-R-red.png">
 <h1 align="center">
-  <img src="https://rubiconstrategy.com/static/28e4d743575535207b895c64f41eac18/53973/logo-R-red.png">
   Gatsby + Prismic Multilingual Demo Site
 </h1>
 

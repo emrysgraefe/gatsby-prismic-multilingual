@@ -3,6 +3,8 @@
 import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
+import { withPreview } from 'gatsby-source-prismic'
+
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/Layout'
 
@@ -28,7 +30,7 @@ const Contact = ({ data }) => {
   )
 }
 
-export default Contact
+export default withPreview(Contact)
 
 export const query = graphql`
 query ContactPageQuery($lang: String!) {

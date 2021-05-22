@@ -29,21 +29,20 @@ const HeroContentWrapper = styled.div`
   }
 `
 
-const Hero = ({ data }) => {
-  const bgImage = convertToBgImage(getImage(data.background_image.localFile.childImageSharp.gatsbyImageData))
-  console.log(data)
+const Hero = ({ image, title, content, buttonUrl, buttonLabel }) => {
+  const bgImage = convertToBgImage(getImage(image))
+  console.log(buttonUrl)
   return (
       <HeroWrapper
-      Tag="div"
-      {...bgImage}
-      preserveStackingContext
-    >
-      <HeroContentWrapper>
-        <RichText render={data.hero_title.raw} />
-        <h2>{data.hero_content}</h2>
-        <ButtonLink to={data.button_link.raw.slug}>{data.button_label}</ButtonLink>
-      </HeroContentWrapper>
-      
+        Tag="div"
+        {...bgImage}
+        preserveStackingContext
+      >
+        <HeroContentWrapper>
+          <RichText render={title.raw} />
+          <h2>{content}</h2>
+          <ButtonLink to={buttonUrl.raw.url}>{buttonLabel}</ButtonLink>
+        </HeroContentWrapper>
     </HeroWrapper>    
   )
 }

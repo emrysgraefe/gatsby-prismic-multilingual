@@ -3,6 +3,8 @@
 import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
+import { withPreview } from 'gatsby-source-prismic'
+
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/Layout'
 
@@ -28,7 +30,7 @@ const About = ({ data }) => {
   )
 }
 
-export default About
+export default withPreview(About)
 
 export const query = graphql`
 query AboutPageQuery($lang: String!) {
