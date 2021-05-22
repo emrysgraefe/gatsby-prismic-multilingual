@@ -31,7 +31,6 @@ const HeroContentWrapper = styled.div`
 
 const Hero = ({ image, title, content, buttonUrl, buttonLabel }) => {
   const bgImage = convertToBgImage(getImage(image))
-  console.log(buttonUrl)
   return (
       <HeroWrapper
         Tag="div"
@@ -41,7 +40,7 @@ const Hero = ({ image, title, content, buttonUrl, buttonLabel }) => {
         <HeroContentWrapper>
           <RichText render={title.raw} />
           <h2>{content}</h2>
-          <ButtonLink to={buttonUrl.raw.url}>{buttonLabel}</ButtonLink>
+          <ButtonLink to={`${buttonUrl.uid}`}>{buttonLabel}</ButtonLink>
         </HeroContentWrapper>
     </HeroWrapper>    
   )

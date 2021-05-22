@@ -50,6 +50,7 @@
               "button_link": {
                 "type": "Link",
                 "config": {
+                  "select": "document",
                   "label": "Button Link"
                 }
               },

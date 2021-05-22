@@ -57,7 +57,7 @@ query HomePageQuery($lang: String!) {
           primary {
             button_label
             button_link {
-              raw
+              uid
             }
             background_image {
               localFile {

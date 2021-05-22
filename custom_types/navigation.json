@@ -1,40 +1,51 @@
 {
-  "Main" : {
-    "logo" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
-        "label" : "Logo"
+  "Main": {
+    "logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo"
       }
     },
-    "logo_alt" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Logo alt",
-        "placeholder" : "Alt"
+    "page_link": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "homepage"
+        ],
+        "label": "Page link",
+        "placeholder": "Home"
       }
     },
-    "links" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "label" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Label",
-              "placeholder" : "Label"
+    "logo_alt": {
+      "type": "Text",
+      "config": {
+        "label": "Logo alt",
+        "placeholder": "Alt"
+      }
+    },
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label",
+              "placeholder": "Label"
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link",
-              "placeholder" : "Link"
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link",
+              "placeholder": "Link"
             }
           }
         },
-        "label" : "Links"
+        "label": "Links"
       }
     }
   }

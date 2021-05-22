@@ -48,7 +48,7 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
   return (
     <Header>
       <Branding>
-        <Link to="/">
+        <Link to={`${topMenu.data.page_link.url}`}>
           <GatsbyImage image={getImage(topMenu.data.logo.localFile.childImageSharp.gatsbyImageData)} alt="Business" />
         </Link>
       </Branding>
@@ -85,9 +85,11 @@ fragment NavigationFragment on PrismicNavigation {
         url
       }
     }
+    page_link {
+      url
+    }
   }
 }
 `
-
 
 export default TopMenu
