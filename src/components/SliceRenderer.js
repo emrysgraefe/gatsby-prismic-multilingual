@@ -16,11 +16,15 @@ const SliceRenderer = ({ slices }) => {
                 content={bodyContent.primary.hero_content}
                 buttonLabel={bodyContent.primary.button_label}
                 buttonUrl={bodyContent.primary.button_link}
-                data={bodyContent.primary} />
+              />
             )
           case 'block_quote':
             return (
-              <BlockQuote key={`${bodyContent.slice_type}-${i}`} data={bodyContent.primary} />
+              <BlockQuote
+                key={`${bodyContent.slice_type}-${i}`}
+                title={bodyContent.primary.block_title}
+                content={bodyContent.primary.quote_text}
+              />
             )
           case 'featured_pages':
             return (
