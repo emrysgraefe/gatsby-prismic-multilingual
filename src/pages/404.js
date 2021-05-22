@@ -1,5 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Homepage from '../templates/Homepage'
+import About from '../templates/About'
+import Blog from '../templates/Blog'
+import Contact from '../templates/Contact'
+import Team from '../templates/Team'
 
 // styles
 const pageStyles = {
@@ -51,4 +56,12 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
+export default withUnpublishedPreview(NotFoundPage, {
+  templateMap: {
+    homepage: Homepage,
+    about: About,
+    blog_page: Blog,
+    Contact: Contact,
+    team: Team,
+  }
+})
