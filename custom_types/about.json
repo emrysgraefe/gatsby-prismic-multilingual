@@ -11,7 +11,8 @@
       "type": "StructuredText",
       "config": {
         "single": "heading5",
-        "label": "Label"
+        "label": "Label",
+        "placeholder": "Label"
       }
     },
     "title": {
@@ -36,6 +37,14 @@
         "multi": "heading2",
         "label": "Page description",
         "placeholder": "Page description"
+      }
+    },
+    "excerpt": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Excerpt",
+        "placeholder": "Excerpt"
       }
     },
     "content": {

@@ -50,6 +50,9 @@ query AboutPageQuery($lang: String!) {
       content {
         raw
       }
+      excerpt {
+        raw
+      }
       header_image {
         localFile {
           childImageSharp {
@@ -58,9 +61,6 @@ query AboutPageQuery($lang: String!) {
         }
       }
       page_description {
-        raw
-      }
-      label {
         raw
       }
       title {

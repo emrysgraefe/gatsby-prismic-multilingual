@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Hero from './Hero'
 import BlockQuote from './BlockQuote'
+import FeaturedPages from './FeaturedPages'
 
 const SliceRenderer = ({ slices }) => {
   return (
@@ -28,9 +29,10 @@ const SliceRenderer = ({ slices }) => {
             )
           case 'featured_pages':
             return (
-              <div key={`${bodyContent.slice_type}-${i}`}>
-                featured pages
-              </div>
+              <FeaturedPages 
+                key={`${bodyContent.slice_type}-${i}`}
+                items={bodyContent.items}
+              />
             )
           case 'call_to_action':
             return (

@@ -105,6 +105,50 @@ query HomePageQuery($lang: String!) {
               url
               lang
               slug
+              document {
+                ... on PrismicAbout {
+                  id
+                  data {
+                    header_image {
+                      localFile {
+                        childImageSharp {
+                          gatsbyImageData(width: 600)
+                        }
+                      }
+                    }
+                    excerpt {
+                      raw
+                    }
+                    title {
+                      raw
+                    }
+                    label {
+                      raw
+                    }
+                  }
+                }
+                ... on PrismicTeam {
+                  id
+                  data {
+                    header_image {
+                      localFile {
+                        childImageSharp {
+                          gatsbyImageData(width: 600)
+                        }
+                      }
+                    }
+                    excerpt {
+                      raw
+                    }
+                    title {
+                      raw
+                    }
+                    label {
+                      raw
+                    }
+                  }
+                }
+              }
             }
           }
         }

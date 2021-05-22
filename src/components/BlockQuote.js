@@ -8,6 +8,7 @@ const QuoteContainer = styled.div`
 const Textbox = styled.div`
   margin: 0 auto;
   text-align: center;
+  max-width: 65ch;
 `
 
 const Label = styled.h5`
@@ -16,16 +17,16 @@ const Label = styled.h5`
   font-weight: 100;
 `
 
-const Content = styled.span`
-  font-size: 22px;
+const Content = styled.h2`
+  font-size: 66px;
 `
 
 const BlockQuote = ({ title, content }) => {
   return (
     <QuoteContainer>
       <Textbox>
-      <Label>{title}</Label>
-      <Content>{content}</Content>
+        <Label>{title}</Label>
+        <Content>{content}</Content>
       </Textbox>
       
     </QuoteContainer>

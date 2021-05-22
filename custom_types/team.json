@@ -7,6 +7,14 @@
         "placeholder": "Slug"
       }
     },
+    "label": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Label",
+        "placeholder": "Label"
+      }
+    },
     "title": {
       "type": "StructuredText",
       "config": {
@@ -21,6 +29,14 @@
         "constraint": {},
         "thumbnails": [],
         "label": "Header image"
+      }
+    },
+    "excerpt": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Excerpt",
+        "placeholder": "Excerpt"
       }
     },
     "body": {
