@@ -1,5 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { withUnpublishedPreview } from 'gatsby-source-prismic'
+
 import Homepage from '../templates/Homepage'
 import About from '../templates/About'
 import Blog from '../templates/Blog'
