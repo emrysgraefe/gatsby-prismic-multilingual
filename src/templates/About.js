@@ -4,9 +4,16 @@ import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
 import { withPreview } from 'gatsby-source-prismic'
-
+import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/Layout'
+import PageHeader from '../components/PageHeader'
+import SliceRenderer from '../components/SliceRenderer'
+
+const PageContent = styled.div`
+  max-width: 65ch;
+  margin: 120px auto;
+`
 
 const About = ({ data }) => {
   if (!data) return null
@@ -25,7 +32,12 @@ const About = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <RichText render={document.data.title.raw} />
+      <PageHeader title={document.data.title} image={document.data.header_image.localFile.childImageSharp.gatsbyImageData} />
+      <PageContent>
+        <RichText render={document.data.page_description.raw} />
+        <RichText render={document.data.content.raw} />
+      </PageContent>
+      <SliceRenderer slices={document.data.body} />
     </Layout>
   )
 }
@@ -56,7 +68,7 @@ query AboutPageQuery($lang: String!) {
       header_image {
         localFile {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 2400)
           }
         }
       }
@@ -65,6 +77,32 @@ query AboutPageQuery($lang: String!) {
       }
       title {
         raw
+      }
+      body {
+        ... on PrismicAboutBodyServices {
+          id
+          slice_type
+          items {
+            icon {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 30)
+                }
+              }
+            }
+            service_description {
+              raw
+            }
+            service_title {
+              raw
+            }
+          }
+          primary {
+            title {
+              raw
+            }
+          }
+        }
       }
     }
   }

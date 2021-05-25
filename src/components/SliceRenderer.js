@@ -4,6 +4,7 @@ import BlockQuote from './BlockQuote'
 import FeaturedPages from './FeaturedPages'
 import FeaturedPosts from './FeaturedPosts'
 import CallToAction from './CallToAction'
+import Services from './Services'
 
 const SliceRenderer = ({ slices }) => {
   return (
@@ -51,6 +52,14 @@ const SliceRenderer = ({ slices }) => {
                 buttonLabel={bodyContent.primary.button_label}
                 buttonUrl={bodyContent.primary.button_link.url}
                 content={bodyContent.primary.paragraph}
+                title={bodyContent.primary.title}
+              />
+            )
+          case 'services':
+            return (
+              <Services 
+                key={`${bodyContent.slice_type}-${i}`}
+                items={bodyContent.items}
                 title={bodyContent.primary.title}
               />
             )
