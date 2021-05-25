@@ -78,6 +78,9 @@ query AboutPageQuery($lang: String!) {
       title {
         raw
       }
+      label {
+        raw
+      }
       body {
         ... on PrismicAboutBodyServices {
           id

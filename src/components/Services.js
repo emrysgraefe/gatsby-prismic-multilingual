@@ -22,9 +22,7 @@ const Services = ({ title, items }) => {
     <ServicesWrapper>
       <RichText render={title.raw} />
       <ServicesContainer>
-        
         {items.map((service, i) => {
-          console.log(service)
           return (
             <Service 
               key={i}

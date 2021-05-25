@@ -28,7 +28,7 @@ const HeaderContentWrapper = styled.div`
   }
 `
 
-const Header = ({ image, title }) => {
+const Header = ({ image, title, label }) => {
   const bgImage = convertToBgImage(getImage(image))
   return (
       <HeaderWrapper
@@ -37,6 +37,7 @@ const Header = ({ image, title }) => {
         preserveStackingContext
       >
         <HeaderContentWrapper>
+          <RichText render={label?.raw} />
           <RichText render={title.raw} />
         </HeaderContentWrapper>
     </HeaderWrapper>    

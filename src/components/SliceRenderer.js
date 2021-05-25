@@ -5,6 +5,7 @@ import FeaturedPages from './FeaturedPages'
 import FeaturedPosts from './FeaturedPosts'
 import CallToAction from './CallToAction'
 import Services from './Services'
+import TeamList from './TeamList'
 
 const SliceRenderer = ({ slices }) => {
   return (
@@ -61,6 +62,15 @@ const SliceRenderer = ({ slices }) => {
                 key={`${bodyContent.slice_type}-${i}`}
                 items={bodyContent.items}
                 title={bodyContent.primary.title}
+              />
+            )
+          case 'team':
+            return (
+              <TeamList
+                key={`${bodyContent.slice_type}-${i}`}
+                items={bodyContent.items}
+                title={bodyContent.primary.team_title}
+                label={bodyContent.primary.label}
               />
             )
           default:

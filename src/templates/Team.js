@@ -7,6 +7,8 @@ import { withPreview } from 'gatsby-source-prismic'
 
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/Layout'
+import PageHeader from '../components/PageHeader'
+import SliceRenderer from '../components/SliceRenderer'
 
 const Team = ({ data }) => {
   if (!data) return null
@@ -25,7 +27,12 @@ const Team = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <RichText render={document.data.title.raw} />
+      <PageHeader
+        label={document.data.label}
+        title={document.data.title}
+        image={document.data.header_image.localFile.childImageSharp.gatsbyImageData}
+      />
+      <SliceRenderer slices={document.data.body} />
     </Layout>
   )
 }
@@ -50,12 +57,44 @@ query TeamPageQuery($lang: String!) {
       header_image {
         localFile {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 2400)
           }
         }
       }
       title {
         raw
+      }
+      label {
+        raw
+      }
+      body {
+        ... on PrismicTeamBodyTeam {
+          id
+          slice_type
+          primary {
+            team_title {
+              raw
+            }
+            label {
+              raw
+            }
+          }
+          items {
+            first_and_lastname {
+              raw
+            }
+            portrait {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 300)
+                }
+              }
+            }
+            position {
+              raw
+            }
+          }
+        }
       }
     }
   }
