@@ -5,6 +5,7 @@ import {NavigationFragment} from '../components/TopMenu'
 import { withPreview } from 'gatsby-source-prismic'
 import Layout from '../components/Layout'
 import SliceRenderer from '../components/SliceRenderer'
+import Seo from '../components/Seo'
 
 const IndexPage = ({ data }) => {
   if (!data) return null
@@ -25,6 +26,7 @@ const IndexPage = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
+      <Seo lang={activeDoc.lang} />
       <SliceRenderer slices={document.data.body}/>
     </Layout>
   )
@@ -163,6 +165,40 @@ query HomePageQuery($lang: String!) {
           items {
             post {
               url
+            }
+          }
+        }
+        ... on PrismicHomepageBodyFeaturedPosts {
+          id
+          slice_type
+          primary {
+            title {
+              raw
+            }
+          }
+          items {
+            post {
+              document {
+                ... on PrismicBlogPost {
+                  id
+                  data {
+                    date
+                    title {
+                      raw
+                    }
+                    featured_image {
+                      localFile {
+                        childImageSharp {
+                          gatsbyImageData(width: 350)
+                        }
+                      }
+                    }
+                    excerpt {
+                      raw
+                    }
+                  }
+                }
+              }
             }
           }
         }

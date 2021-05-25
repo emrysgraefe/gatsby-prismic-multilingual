@@ -12,7 +12,6 @@ const FeaturedPages = ({ items }) => {
   return (
     <FeaturedPagesWrapper>
       {items.map((item, i) => {
-        console.log(item)
         return (
           <FeaturedPage key={item.page.document.id} item={item} order={i} />
         )

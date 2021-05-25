@@ -6,6 +6,10 @@ const linkResolver = require('./src/utils/linkResolver')
 
 
 module.exports = {
+  flags: {
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PRESERVE_WEBPACK_CACHE: true
+  },
   siteMetadata: {
     title: "Prismic Multilingual",
   },
