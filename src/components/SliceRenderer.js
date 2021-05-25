@@ -3,6 +3,7 @@ import Hero from './Hero'
 import BlockQuote from './BlockQuote'
 import FeaturedPages from './FeaturedPages'
 import FeaturedPosts from './FeaturedPosts'
+import CallToAction from './CallToAction'
 
 const SliceRenderer = ({ slices }) => {
   return (
@@ -45,9 +46,13 @@ const SliceRenderer = ({ slices }) => {
             )
           case 'call_to_action':
             return (
-              <div key={`${bodyContent.slice_type}-${i}`}>
-                call to action
-              </div>
+              <CallToAction 
+                key={`${bodyContent.slice_type}-${i}`}
+                buttonLabel={bodyContent.primary.button_label}
+                buttonUrl={bodyContent.primary.button_link.url}
+                content={bodyContent.primary.paragraph}
+                title={bodyContent.primary.title}
+              />
             )
           default:
             return null
