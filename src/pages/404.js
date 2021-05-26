@@ -64,7 +64,7 @@ export default withUnpublishedPreview(NotFoundPage, {
     homepage: Homepage,
     about: About,
     blog_page: Blog,
-    blog_post: BlogPost
+    blog_post: BlogPost,
     contact: Contact,
     team: Team,
   }
