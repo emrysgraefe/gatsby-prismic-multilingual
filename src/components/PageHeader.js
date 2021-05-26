@@ -37,7 +37,9 @@ const Header = ({ image, title, label }) => {
         preserveStackingContext
       >
         <HeaderContentWrapper>
-          <RichText render={label?.raw} />
+          {!!label && 
+            <RichText render={label.raw} />
+          }
           <RichText render={title.raw} />
         </HeaderContentWrapper>
     </HeaderWrapper>    

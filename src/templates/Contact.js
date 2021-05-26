@@ -51,27 +51,24 @@ const Contact = ({ data }) => {
         <SliceRenderer slices={document.data.body} lang={activeDoc.lang} />
         <div>
           <ContactDetail>
-          <RichText render={document.data.offices_title.raw} />
-          <RichText render={document.data.offices_description.raw} />
-          </ContactDetail>
-          <ContactDetail>
-          <RichText render={document.data.address_title.raw} />
-          <RichText render={document.data.address.raw} />
+            <RichText render={document.data.offices_title.raw} />
+            <RichText render={document.data.offices_description.raw} />
           </ContactDetail>
 
           <ContactDetail>
-          <RichText render={document.data.hours_title.raw} />
-          <RichText render={document.data.hours_description.raw} />
+            <RichText render={document.data.address_title.raw} />
+            <RichText render={document.data.address.raw} />
+          </ContactDetail>
+          
+          <ContactDetail>
+            <RichText render={document.data.hours_title.raw} />
+            <RichText render={document.data.hours_description.raw} />
           </ContactDetail>
 
           <ContactDetail>
-          <RichText render={document.data.contact_info_title.raw} />
-          <RichText render={document.data.contact_info.raw} />
+            <RichText render={document.data.contact_info_title.raw} />
+            <RichText render={document.data.contact_info.raw} />
           </ContactDetail>
-          
-          
-          
-          
         </div>
       </PageContainer>
     </Layout>

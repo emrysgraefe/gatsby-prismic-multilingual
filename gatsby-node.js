@@ -49,6 +49,15 @@ exports.createPages = async ({ graphql, actions }) => {
           url
         }
       }
+      allPrismicBlogPost {
+        nodes {
+          _previewable
+          type
+          lang
+          uid
+          url
+        }
+      }
     }
   `)
 
@@ -89,6 +98,14 @@ exports.createPages = async ({ graphql, actions }) => {
       path: page.url,
       component: path.resolve(__dirname, 'src/templates/Contact.js'),
       context: { ...page },
+    })
+  })
+
+  pages.data.allPrismicBlogPost.nodes.forEach((post) => {
+    createPage({
+      path: post.url,
+      component: path.resolve(__dirname, 'src/templates/BlogPost.js'),
+      context: { ...post },
     })
   })
   
