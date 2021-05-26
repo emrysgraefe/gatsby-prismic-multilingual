@@ -5,6 +5,7 @@ import { withUnpublishedPreview } from 'gatsby-source-prismic'
 import Homepage from '../templates/Homepage'
 import About from '../templates/About'
 import Blog from '../templates/Blog'
+import BlogPost from '../templates/BlogPost'
 import Contact from '../templates/Contact'
 import Team from '../templates/Team'
 
@@ -63,7 +64,8 @@ export default withUnpublishedPreview(NotFoundPage, {
     homepage: Homepage,
     about: About,
     blog_page: Blog,
-    Contact: Contact,
+    blog_post: BlogPost
+    contact: Contact,
     team: Team,
   }
 })

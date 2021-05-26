@@ -28,7 +28,6 @@ const Form = styled.form`
   }
 `
 
-
 const ContactForm = ({ title, content, buttonText, items, lang, redirect }) => {
   return (
     <FormWrapper>
