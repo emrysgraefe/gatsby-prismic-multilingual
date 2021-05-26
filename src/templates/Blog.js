@@ -4,9 +4,15 @@ import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
 import { withPreview } from 'gatsby-source-prismic'
-
-import { RichText } from 'prismic-reactjs'
+import styled from 'styled-components'
 import Layout from '../components/Layout'
+import PageHeader from '../components/PageHeader'
+import BlogRoll from '../components/BlogRoll'
+
+const PageContent = styled.div`
+  max-width: 65ch;
+  margin: 120px auto;
+`
 
 const Blog = ({ data }) => {
   if (!data) return null
@@ -25,7 +31,8 @@ const Blog = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <RichText render={document.data.title.raw} />
+      <PageHeader title={document.data.title} image={document.data.header_image.localFile.childImageSharp.gatsbyImageData} />
+      <BlogRoll items={data.allPrismicBlogPost.nodes} />
     </Layout>
   )
 }
@@ -45,10 +52,32 @@ query BlogPageQuery($lang: String!) {
       url
     }
     lang
-    url
     type
+    url
     data {
-      content {
+      title {
+        raw
+      }
+      header_image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 2400)
+          }
+        }
+      }
+    }
+  }
+  allPrismicBlogPost(
+    filter: {
+      lang: {eq: $lang}
+    }
+    sort: {
+      fields: data___date, order: DESC
+    }) {
+    nodes {
+      data {
+        date(fromNow: true)
+        excerpt {
           raw
         }
         featured_image {
@@ -61,8 +90,11 @@ query BlogPageQuery($lang: String!) {
         title {
           raw
         }
-      } 
+      }
+      url
+      lang
+      uid
     }
   }
-
+}
 `

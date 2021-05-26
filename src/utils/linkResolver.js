@@ -33,8 +33,8 @@ const linkResolver = (doc) => {
 
   if (doc.type === 'blog_post') {
     return properties.lang === defaultLanguage
-    ? `/${properties.uid}`
-    : `/${properties.lang}/${properties.uid}`
+    ? `/blog/${properties.uid}`
+    : `/blog/${properties.lang}/${properties.uid}`
   }
 
   return '/'

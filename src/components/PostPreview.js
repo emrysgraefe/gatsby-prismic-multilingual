@@ -47,13 +47,14 @@ const FeaturedPost = ({ item }) => {
   return (
     <PostWrapper>
       <GatsbyImage 
-        image={getImage(item.post.document.data.featured_image.localFile.childImageSharp.gatsbyImageData)} 
+        image={getImage(item.data.featured_image.localFile.childImageSharp.gatsbyImageData)} 
         alt="value"
       />
       <Content>
-        <RichText render={item.post.document.data.title.raw} />
-        <RichText render={item.post.document.data.excerpt.raw} />
-        <ButtonLink to={item.post.url}>Read</ButtonLink>
+        <RichText render={item.data.title.raw} />
+        <p>{item.data.date}</p>
+        <RichText render={item.data.excerpt.raw} />
+        <ButtonLink to={item.uid}>Read</ButtonLink>
       </Content>
     </PostWrapper>
   )
