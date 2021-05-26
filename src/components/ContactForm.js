@@ -30,15 +30,6 @@ const Form = styled.form`
 
 
 const ContactForm = ({ title, content, buttonText, items, lang, redirect }) => {
-  let redirectSlug
-  if (lang !== 'en-ca') {
-    if (redirectSlug !== '/') {
-      redirectSlug = `${redirect}`
-    }
-  } else {
-    redirectSlug = `${redirect}`
-  }
-  console.log(redirectSlug)
   return (
     <FormWrapper>
       <RichText render={title.raw} />
@@ -47,7 +38,7 @@ const ContactForm = ({ title, content, buttonText, items, lang, redirect }) => {
         name={`contact-us-${lang}`}
         method="POST"
         data-netlify="true"
-        action={redirectSlug} >
+        action={redirect} >
           <input type="hidden" name="form-name" value={`contact-us-${lang}`} />
           {items.map((field, i) => {
             if (field.field_type === 'textarea') {
