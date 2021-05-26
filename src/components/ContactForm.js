@@ -32,9 +32,11 @@ const Form = styled.form`
 const ContactForm = ({ title, content, buttonText, items, lang, redirect }) => {
   let redirectSlug
   if (lang !== 'en-ca') {
-    redirectSlug = `/${lang}/${redirect}`
+    if (redirectSlug !== '/') {
+      redirectSlug = `/${lang}${redirect}`
+    }
   } else {
-    redirectSlug = `/${redirect}`
+    redirectSlug = `${redirect}`
   }
   return (
     <FormWrapper>
