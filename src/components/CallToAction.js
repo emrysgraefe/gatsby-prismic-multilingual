@@ -22,7 +22,7 @@ const CallToAction = ({ title, content, buttonLabel, buttonUrl }) => {
       <ContentWrapper>
         <RichText render={title.raw} />
         <RichText render={content.raw} />
-        <ButtonLink to={buttonUrl.url}>{buttonLabel}</ButtonLink>
+        <ButtonLink to={buttonUrl}>{buttonLabel}</ButtonLink>
       </ContentWrapper>
     </CallToActionWrapper>
   )
