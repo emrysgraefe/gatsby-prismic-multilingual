@@ -50,6 +50,7 @@ query HomePageQuery($lang: String!) {
     lang
     url
     type
+    _previewable
     data {
       body {
         ... on PrismicHomepageBodyHero {

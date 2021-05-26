@@ -56,6 +56,7 @@ query AboutPageQuery($lang: String!) {
       lang
       url
     }
+    _previewable
     lang
     url
     data {

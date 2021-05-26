@@ -57,9 +57,10 @@ query BlogPostQuery($lang: String!, $uid: String!) {
       lang
       url
     }
-    lang,
-    type,
-    url,
+    _previewable
+    lang
+    type
+    url
     data {
       date
       content {

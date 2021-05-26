@@ -53,6 +53,7 @@ query TeamPageQuery($lang: String!) {
     }
     lang
     url
+    _previewable
     data {
       header_image {
         localFile {
