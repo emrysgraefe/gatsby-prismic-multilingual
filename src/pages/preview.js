@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { withPreviewResolver } from 'gatsby-source-prismic'
-// import { graphql, useStaticQuery } from 'gatsby'
 import linkResolver from '../utils/linkResolver'
 
 const PreviewPage = ({ isPreview }) => {
@@ -10,11 +9,11 @@ const PreviewPage = ({ isPreview }) => {
   )
 }
 
-const WrappedPreview = (props) => {
+const WrappedPreview = () => {
   return withPreviewResolver(PreviewPage, {
     repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
     linkResolver: () => linkResolver
-  })(props)
+  })
 }
 
 export default WrappedPreview
