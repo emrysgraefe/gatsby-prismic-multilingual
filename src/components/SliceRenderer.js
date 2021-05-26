@@ -6,8 +6,9 @@ import FeaturedPosts from './FeaturedPosts'
 import CallToAction from './CallToAction'
 import Services from './Services'
 import TeamList from './TeamList'
+import ContactForm from './ContactForm'
 
-const SliceRenderer = ({ slices }) => {
+const SliceRenderer = ({ slices, lang }) => {
   return (
     <div>
       {slices.map((bodyContent, i) => {
@@ -71,6 +72,18 @@ const SliceRenderer = ({ slices }) => {
                 items={bodyContent.items}
                 title={bodyContent.primary.team_title}
                 label={bodyContent.primary.label}
+              />
+            )
+          case 'contact_form':
+            return (
+              <ContactForm 
+                key={`${bodyContent.slice_type}-${i}`}
+                items={bodyContent.items}
+                title={bodyContent.primary.title}
+                content={bodyContent.primary.content}
+                buttonText={bodyContent.primary.submit_button_text}
+                lang={lang}
+                redirect={bodyContent.primary.redirect?.url}
               />
             )
           default:

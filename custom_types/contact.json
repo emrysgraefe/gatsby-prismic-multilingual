@@ -124,6 +124,13 @@
                   "label": "Submit Button Text",
                   "placeholder": "Submit"
                 }
+              },
+              "redirect": {
+                "type": "Link",
+                "config": {
+                  "label": "Redirect",
+                  "placeholder": "Redirect"
+                }
               }
             },
             "repeat": {
@@ -153,6 +160,20 @@
                   "default_value": "text",
                   "label": "Field type",
                   "placeholder": "Field type"
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "Label"
+                }
+              },
+              "placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "Placeholder",
+                  "placeholder": "Placeholder"
                 }
               }
             }
