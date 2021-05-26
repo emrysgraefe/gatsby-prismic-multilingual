@@ -54,7 +54,7 @@ const FeaturedPost = ({ item }) => {
         <RichText render={item.data.title.raw} />
         <p>{item.data.date}</p>
         <RichText render={item.data.excerpt.raw} />
-        <ButtonLink to={item.uid}>Read</ButtonLink>
+        <ButtonLink to={item.url}>Read</ButtonLink>
       </Content>
     </PostWrapper>
   )

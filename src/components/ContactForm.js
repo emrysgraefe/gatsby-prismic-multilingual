@@ -33,11 +33,12 @@ const ContactForm = ({ title, content, buttonText, items, lang, redirect }) => {
   let redirectSlug
   if (lang !== 'en-ca') {
     if (redirectSlug !== '/') {
-      redirectSlug = `/${lang}${redirect}`
+      redirectSlug = `${redirect}`
     }
   } else {
     redirectSlug = `${redirect}`
   }
+  console.log(redirectSlug)
   return (
     <FormWrapper>
       <RichText render={title.raw} />

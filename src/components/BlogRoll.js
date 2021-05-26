@@ -10,7 +10,6 @@ const BlogRollWrapper = styled.section`
     text-align: center;
     font-weight: 100;
   }
-  
 `
 
 const BlogRollContainer = styled.div`
@@ -21,7 +20,6 @@ const BlogRollContainer = styled.div`
 `
 
 const BlogRoll = ({ items }) => {
-  console.log(items)
   return (
     <BlogRollWrapper>
       <BlogRollContainer>
