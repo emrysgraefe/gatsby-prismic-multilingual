@@ -31,7 +31,7 @@ const Blog = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <PageHeader title={document.data.title} image={document.data.header_image.localFile.childImageSharp.gatsbyImageData} />
+      <PageHeader title={document.data.title} image={document.data.header_image} />
       <BlogRoll items={data.allPrismicBlogPost.nodes} />
     </Layout>
   )

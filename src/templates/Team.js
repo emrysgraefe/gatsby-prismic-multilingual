@@ -30,7 +30,7 @@ const Team = ({ data }) => {
       <PageHeader
         label={document.data.label}
         title={document.data.title}
-        image={document.data.header_image.localFile.childImageSharp.gatsbyImageData}
+        image={document.data.header_image}
       />
       <SliceRenderer slices={document.data.body} />
     </Layout>

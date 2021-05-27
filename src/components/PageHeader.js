@@ -8,7 +8,6 @@ import { RichText } from 'prismic-reactjs'
 const HeaderWrapper = styled(BackgroundImage)`
   min-height: 33vh;
   padding: 25vh 20px;
-  
   background-color: rgba(0,0,0,.3);
 `
 
@@ -28,22 +27,43 @@ const HeaderContentWrapper = styled.div`
   }
 `
 
+const PreviewHeaderWrapper = styled.div`
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 33vh;
+  padding: 25vh 20px;
+  background-color: rgba(0,0,0,.3);
+`
+
 const Header = ({ image, title, label }) => {
-  const bgImage = convertToBgImage(getImage(image))
-  return (
-      <HeaderWrapper
-        Tag="div"
-        {...bgImage}
-        preserveStackingContext
-      >
+  if (!!image.localFile) {
+    const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
+    return (
+        <HeaderWrapper
+          Tag="div"
+          {...bgImage}
+          preserveStackingContext
+        >
+          <HeaderContentWrapper>
+            {!!label && 
+              <RichText render={label.raw} />
+            }
+            <RichText render={title.raw} />
+          </HeaderContentWrapper>
+      </HeaderWrapper>    
+    )
+  } else {
+    return (
+      <PreviewHeaderWrapper image={image}>
         <HeaderContentWrapper>
           {!!label && 
             <RichText render={label.raw} />
           }
           <RichText render={title.raw} />
         </HeaderContentWrapper>
-    </HeaderWrapper>    
-  )
+      </PreviewHeaderWrapper> 
+    )
+  }
 }
 
 export default Header

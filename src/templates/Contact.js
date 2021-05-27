@@ -46,7 +46,7 @@ const Contact = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <PageHeader title={document.data.title} image={document.data.header_image.localFile.childImageSharp.gatsbyImageData} />
+      <PageHeader title={document.data.title} image={document.data.header_image} />
       <PageContainer>
         <SliceRenderer slices={document.data.body} lang={activeDoc.lang} />
         <div>

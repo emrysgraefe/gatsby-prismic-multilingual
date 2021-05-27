@@ -32,7 +32,7 @@ const BlogPost = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <PageHeader title={document.data.title} image={document.data.featured_image.localFile.childImageSharp.gatsbyImageData} />
+      <PageHeader title={document.data.title} image={document.data.featured_image} />
       <PageContent>
         <RichText render={document.data.content.raw} />
       </PageContent>
