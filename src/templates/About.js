@@ -90,7 +90,7 @@ query AboutPageQuery($lang: String!) {
             icon {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(width: 30)
+                  gatsbyImageData(width: 300)
                 }
               }
             }
