@@ -65,7 +65,7 @@ query HomePageQuery($lang: String!) {
             background_image {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(width: 2400)
                 }
               }
             }
@@ -115,7 +115,7 @@ query HomePageQuery($lang: String!) {
                     header_image {
                       localFile {
                         childImageSharp {
-                          gatsbyImageData(width: 600)
+                          gatsbyImageData(width: 1200)
                         }
                       }
                     }
@@ -190,7 +190,7 @@ query HomePageQuery($lang: String!) {
                     featured_image {
                       localFile {
                         childImageSharp {
-                          gatsbyImageData(width: 350)
+                          gatsbyImageData(width: 600)
                         }
                       }
                     }

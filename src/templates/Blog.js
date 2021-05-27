@@ -83,7 +83,7 @@ query BlogPageQuery($lang: String!) {
         featured_image {
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(width: 600)
             }
           }
         }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Hero from './Hero'
 import BlockQuote from './BlockQuote'
 import FeaturedPages from './FeaturedPages'
 import FeaturedPosts from './FeaturedPosts'
@@ -7,6 +6,7 @@ import CallToAction from './CallToAction'
 import Services from './Services'
 import TeamList from './TeamList'
 import ContactForm from './ContactForm'
+import PageHeader from './PageHeader'
 
 const SliceRenderer = ({ slices, lang }) => {
   return (
@@ -15,9 +15,9 @@ const SliceRenderer = ({ slices, lang }) => {
         switch (bodyContent.slice_type) {
           case 'hero':
             return (
-              <Hero 
+              <PageHeader 
                 key={`${bodyContent.slice_type}-${i}`}
-                image={bodyContent.primary.background_image.localFile.childImageSharp.gatsbyImageData}
+                image={bodyContent.primary.background_image}
                 title={bodyContent.primary.hero_title}
                 content={bodyContent.primary.hero_content}
                 buttonLabel={bodyContent.primary.button_label}

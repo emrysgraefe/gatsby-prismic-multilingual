@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { getImage, GatsbyImage } from 'gatsby-plugin-image'
+import PreviewableImage from './PreviewableImage'
 import styled from 'styled-components'
 import ButtonLink from './ButtonLink'
 
@@ -46,8 +46,8 @@ const PostWrapper = styled.article`
 const FeaturedPost = ({ item }) => {
   return (
     <PostWrapper>
-      <GatsbyImage 
-        image={getImage(item.post.document.data.featured_image.localFile.childImageSharp.gatsbyImageData)} 
+      <PreviewableImage 
+        image={item.post.document.data.featured_image} 
         alt="value"
       />
       <Content>

@@ -4,6 +4,7 @@ import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
+import ButtonLink from './ButtonLink'
 
 const HeaderWrapper = styled(BackgroundImage)`
   min-height: 33vh;
@@ -36,7 +37,7 @@ const PreviewHeaderWrapper = styled.div`
   background-color: rgba(0,0,0,.3);
 `
 
-const Header = ({ image, title, label }) => {
+const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
   if (!!image.localFile) {
     const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
     return (
@@ -50,6 +51,12 @@ const Header = ({ image, title, label }) => {
               <RichText render={label.raw} />
             }
             <RichText render={title.raw} />
+            {!!content && 
+              <h2>{content}</h2>
+            }
+            {!!buttonLabel && 
+              <ButtonLink to={`${buttonUrl.uid}`}>{buttonLabel}</ButtonLink>
+            }
           </HeaderContentWrapper>
       </HeaderWrapper>    
     )
