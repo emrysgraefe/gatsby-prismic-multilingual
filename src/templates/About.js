@@ -33,7 +33,7 @@ const About = ({ data }) => {
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <PageHeader title={document.data.title} image={document.data.header_image?.localFile.childImageSharp.gatsbyImageData} />
+      <PageHeader title={document.data.title} image={document.data.header_image?.localFile.childImageSharp.gatsbyImageData || document.data.header_image.url} />
       <PageContent>
         <RichText render={document.data.page_description.raw} />
         <RichText render={document.data.content.raw} />
