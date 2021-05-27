@@ -9,11 +9,11 @@ const PreviewPage = ({ isPreview }) => {
   )
 }
 
-const WrappedPreview = () => {
+const WrappedPreview = (props) => {
   return withPreviewResolver(PreviewPage, {
     repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
-    linkResolver: () => linkResolver
-  })
+    linkResolver
+  })(props)
 }
 
 export default WrappedPreview
