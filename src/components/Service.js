@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
+import PreviewableImage from './PreviewableImage'
 
 const ServiceWrapper = styled.div`
   min-width: 200px;
@@ -12,10 +12,9 @@ const ServiceWrapper = styled.div`
   border-radius: 5px;
 `
 const Service = ({ icon, title, description }) => {
-  const image = getImage(icon.localFile.childImageSharp.gatsbyImageData)
   return (
     <ServiceWrapper>
-      <GatsbyImage image={image} alt="" />
+      <PreviewableImage image={icon} alt="" />
       <RichText render={title.raw} />
       <RichText render={description.raw} />
     </ServiceWrapper>
