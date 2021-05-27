@@ -27,13 +27,13 @@ const About = ({ data }) => {
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
-  console.log(document.data.header_image)
+  const image = document.data.header_image.localFile.childImageSharp.gatsbyImageData || document.data.header_image.url
   return (
     <Layout
       topMenu={topMenu}
       activeDocMeta={activeDoc}
     >
-      <PageHeader title={document.data.title} image={document.data.header_image?.localFile.childImageSharp.gatsbyImageData || document.data.header_image.url} />
+      <PageHeader title={document.data.title} image={image} />
       <PageContent>
         <RichText render={document.data.page_description.raw} />
         <RichText render={document.data.content.raw} />
