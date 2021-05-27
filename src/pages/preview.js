@@ -12,7 +12,7 @@ const PreviewPage = ({ isPreview }) => {
 const WrappedPreview = (props) => {
   return withPreviewResolver(PreviewPage, {
     repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
-    linkResolver
+    linkResolver: () => (doc) => linkResolver(doc),
   })(props)
 }
 
