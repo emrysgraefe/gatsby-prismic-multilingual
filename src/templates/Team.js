@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
 import { withPreview } from 'gatsby-source-prismic'
 
-import { RichText } from 'prismic-reactjs'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import SliceRenderer from '../components/SliceRenderer'
