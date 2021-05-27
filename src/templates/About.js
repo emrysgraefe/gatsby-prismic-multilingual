@@ -27,7 +27,7 @@ const About = ({ data }) => {
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
-  console.log(image)
+  console.log(document.data)
   return (
     <Layout
       topMenu={topMenu}
