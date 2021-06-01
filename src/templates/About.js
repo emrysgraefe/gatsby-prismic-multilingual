@@ -45,7 +45,7 @@ const About = ({ data }) => {
 
 export default withPrismicPreview(About, [
   {
-    repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+    repositoryName: `${process.env.GATSBY_PRISMIC_CONTAINER_NAME}`,
     linkResolver
   }
 ])
