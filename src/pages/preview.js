@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { withPrismicPreviewResolver } from 'gatsby-plugin-prismic-previews'
 import linkResolver from '../utils/linkResolver'
 
 const PreviewPage = ({ isPreview }) => {
@@ -10,9 +10,9 @@ const PreviewPage = ({ isPreview }) => {
 }
 
 const WrappedPreview = (props) => {
-  return withPrismicPreview(PreviewPage, {
+  return withPrismicPreviewResolver(PreviewPage, {
     repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
-    linkResolver: () => (doc) => linkResolver(doc),
+    linkResolver
   })(props)
 }
 

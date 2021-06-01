@@ -6,6 +6,7 @@ import {NavigationFragment} from '../components/TopMenu'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
+import linkResolver from '../utils/linkResolver'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import SliceRenderer from '../components/SliceRenderer'
@@ -42,7 +43,12 @@ const About = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(About)
+export default withPrismicPreview(About, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+    linkResolver
+  }
+])
 
 export const query = graphql`
 query AboutPageQuery($lang: String!) {
