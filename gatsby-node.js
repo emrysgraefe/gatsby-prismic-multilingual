@@ -1,4 +1,6 @@
 const path = require('path')
+const { defaultLanguage } = require('./prismic-configuration')
+const linkResolver = require('./src/utils/linkResolver')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -10,7 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
           lang
           _previewable
           uid
-          url
+          type
         }
       }
       allPrismicAbout {
@@ -19,7 +21,6 @@ exports.createPages = async ({ graphql, actions }) => {
           uid
           _previewable
           type
-          url
         }
       }
       allPrismicBlogPage {
@@ -28,7 +29,6 @@ exports.createPages = async ({ graphql, actions }) => {
           type
           lang
           uid
-          url
         }
       }
       allPrismicTeam {
@@ -36,8 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
           uid
           lang
           _previewable
-          type
-          url
+          type          
         }
       }
       allPrismicContact {
@@ -45,8 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
           _previewable
           type
           lang
-          uid
-          url
+          uid       
         }
       }
       allPrismicBlogPost {
@@ -55,7 +53,6 @@ exports.createPages = async ({ graphql, actions }) => {
           type
           lang
           uid
-          url
         }
       }
     }
@@ -63,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicHomepage.nodes.forEach((page) => {
     createPage({
-      path: page.url,
+      path: linkResolver(page),
       component: path.resolve(__dirname, 'src/templates/Homepage.js'),
       context: { ...page },
     })
@@ -71,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicAbout.nodes.forEach((page) => {
     createPage({
-      path: page.url,
+      path: linkResolver(page),
       component: path.resolve(__dirname, 'src/templates/About.js'),
       context: { ...page },
     })
@@ -79,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicBlogPage.nodes.forEach((page) => {
     createPage({
-      path: page.url,
+      path: linkResolver(page),
       component: path.resolve(__dirname, 'src/templates/Blog.js'),
       context: { ...page },
     })
@@ -87,7 +84,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicTeam.nodes.forEach((page) => {
     createPage({
-      path: page.url,
+      path: linkResolver(page),
       component: path.resolve(__dirname, 'src/templates/Team.js'),
       context: { ...page },
     })
@@ -95,18 +92,17 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicContact.nodes.forEach((page) => {
     createPage({
-      path: page.url,
+      path: linkResolver(page),
       component: path.resolve(__dirname, 'src/templates/Contact.js'),
       context: { ...page },
     })
   })
 
-  pages.data.allPrismicBlogPost.nodes.forEach((post) => {
+  pages.data.allPrismicBlogPost.nodes.forEach((page) => {
     createPage({
-      path: post.url,
+      path: linkResolver(page),
       component: path.resolve(__dirname, 'src/templates/BlogPost.js'),
-      context: { ...post },
+      context: { ...page },
     })
   })
-  
 }

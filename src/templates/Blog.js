@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
-import { withPreview } from 'gatsby-source-prismic'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
@@ -17,12 +17,12 @@ const PageContent = styled.div`
 const Blog = ({ data }) => {
   if (!data) return null
   const document = data.prismicBlogPage
-  const { lang, type, url } = document
+  const { lang, type, uid } = document
   const alternateLanguages = document.alternate_languages || []
   const activeDoc = {
     lang,
     type,
-    url,
+    uid,
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
@@ -37,7 +37,7 @@ const Blog = ({ data }) => {
   )
 }
 
-export default withPreview(Blog)
+export default withPrismicPreview(Blog)
 
 export const query = graphql`
 query BlogPageQuery($lang: String!) {
@@ -49,7 +49,6 @@ query BlogPageQuery($lang: String!) {
       uid
       type
       lang
-      url
     }
     lang
     type

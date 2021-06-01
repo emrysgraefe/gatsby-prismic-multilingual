@@ -1,6 +1,11 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { withUnpublishedPreview } from 'gatsby-source-prismic'
+import {
+  withPrismicUnpublishedPreview,
+  componentResolverFromMap,
+} from 'gatsby-plugin-prismic-previews'
+import { linkResolver } from '../utils/linkResolver'
+
 
 import Homepage from '../templates/Homepage'
 import About from '../templates/About'
@@ -59,13 +64,15 @@ const NotFoundPage = () => {
   )
 }
 
-export default withUnpublishedPreview(NotFoundPage, {
-  templateMap: {
+export default withPrismicUnpublishedPreview(NotFoundPage, {
+  respositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+  linkResolver,
+  componentResolver: componentResolverFromMap({
     homepage: Homepage,
     about: About,
     blog_page: Blog,
     blog_post: BlogPost,
     contact: Contact,
     team: Team,
-  }
+  })
 })

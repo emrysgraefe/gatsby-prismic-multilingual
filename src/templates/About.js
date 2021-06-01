@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
-import { withPreview } from 'gatsby-source-prismic'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/Layout'
@@ -18,12 +18,12 @@ const PageContent = styled.div`
 const About = ({ data }) => {
   if (!data) return null
   const document = data.prismicAbout
-  const { lang, type, url } = document
+  const { lang, type, uid } = document
   const alternateLanguages = document.alternate_languages || []
   const activeDoc = {
     lang,
     type,
-    url,
+    uid,
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
@@ -42,7 +42,7 @@ const About = ({ data }) => {
   )
 }
 
-export default withPreview(About)
+export default withPrismicPreview(About)
 
 export const query = graphql`
 query AboutPageQuery($lang: String!) {
@@ -54,11 +54,11 @@ query AboutPageQuery($lang: String!) {
       uid
       type
       lang
-      url
+      uid
     }
     _previewable
     lang
-    url
+    uid
     data {
       content {
         raw
@@ -83,7 +83,7 @@ query AboutPageQuery($lang: String!) {
         raw
       }
       body {
-        ... on PrismicAboutBodyServices {
+        ... on PrismicAboutDataBodyServices {
           id
           slice_type
           items {

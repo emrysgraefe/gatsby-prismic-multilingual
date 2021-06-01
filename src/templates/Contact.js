@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
-import { withPreview } from 'gatsby-source-prismic'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
 
@@ -32,12 +32,12 @@ const ContactDetail = styled.div`
 const Contact = ({ data }) => {
   if (!data) return null
   const document = data.prismicContact
-  const { lang, type, url } = document
+  const { lang, type, uid } = document
   const alternateLanguages = document.alternate_languages || []
   const activeDoc = {
     lang,
     type,
-    url,
+    uid,
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
@@ -75,7 +75,7 @@ const Contact = ({ data }) => {
   )
 }
 
-export default withPreview(Contact)
+export default withPrismicPreview(Contact)
 
 export const query = graphql`
 query ContactPageQuery($lang: String!) {
@@ -87,10 +87,9 @@ query ContactPageQuery($lang: String!) {
       uid
       type
       lang
-      url
     }
     lang
-    url
+    uid
     _previewable
     data {
       address {
@@ -128,7 +127,7 @@ query ContactPageQuery($lang: String!) {
         raw
       }
       body {
-        ... on PrismicContactBodyContactForm {
+        ... on PrismicContactDataBodyContactForm {
           id
           slice_type
           primary {

@@ -2,7 +2,7 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import {NavigationFragment} from '../components/TopMenu'
-import { withPreview } from 'gatsby-source-prismic'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import Layout from '../components/Layout'
 import SliceRenderer from '../components/SliceRenderer'
 import Seo from '../components/Seo'
@@ -11,12 +11,12 @@ const IndexPage = ({ data }) => {
   if (!data) return null
 
   const document = data.prismicHomepage
-  const { lang, type, url } = document
+  const { lang, type, uid } = document
   const alternateLanguages = document.alternate_languages || []
   const activeDoc = {
     lang,
     type,
-    url,
+    uid,
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export default withPreview(IndexPage)
+export default withPrismicPreview(IndexPage)
 
 
 export const query = graphql`
@@ -45,15 +45,14 @@ query HomePageQuery($lang: String!) {
       uid
       type
       lang
-      url
     }
     lang
-    url
+    uid
     type
     _previewable
     data {
       body {
-        ... on PrismicHomepageBodyHero {
+        ... on PrismicHomepageDataBodyHero {
           id
           slice_type
           slice_label
@@ -75,7 +74,7 @@ query HomePageQuery($lang: String!) {
             }
           }
         }
-        ... on PrismicHomepageBodyBlockQuote {
+        ... on PrismicHomepageDataBodyBlockQuote {
           id
           slice_type
           primary {
@@ -83,7 +82,7 @@ query HomePageQuery($lang: String!) {
             block_title
           }
         }
-        ... on PrismicHomepageBodyCallToAction {
+        ... on PrismicHomepageDataBodyCallToAction {
           id
           slice_type
           primary {
@@ -99,7 +98,7 @@ query HomePageQuery($lang: String!) {
             }
           }
         }
-        ... on PrismicHomepageBodyFeaturedPages {
+        ... on PrismicHomepageDataBodyFeaturedPages {
           id
           slice_type
           items {
@@ -155,7 +154,7 @@ query HomePageQuery($lang: String!) {
             }
           }
         }
-        ... on PrismicHomepageBodyFeaturedPosts {
+        ... on PrismicHomepageDataBodyFeaturedPosts {
           id
           slice_type
           primary {
@@ -169,7 +168,7 @@ query HomePageQuery($lang: String!) {
             }
           }
         }
-        ... on PrismicHomepageBodyFeaturedPosts {
+        ... on PrismicHomepageDataBodyFeaturedPosts {
           id
           slice_type
           primary {

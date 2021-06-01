@@ -4,7 +4,6 @@ require("dotenv").config({
 
 const linkResolver = require('./src/utils/linkResolver')
 
-
 module.exports = {
   flags: {
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
@@ -36,9 +35,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: `${process.env.GATSBY_PRISMIC_CONTAINER_NAME}`,
-        accessToken: `${process.env.PRISMIC_ACCESS_TOKEN}`,
-        linkResolver: () => (doc) => linkResolver(doc),  
+        repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        linkResolver: (doc) => linkResolver(doc),
         schemas: {
           homepage: require(`./custom_types/homepage.json`),
           about: require(`./custom_types/about.json`),
@@ -51,9 +50,15 @@ module.exports = {
           contact: require(`./custom_types/contact.json`),
         },
         lang: '*',
-        prismicToolbar: true,
-        shouldDownloadImage: () => (true),
       },
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-prismic-previews',
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        toolbar: 'new',
+      }
+    },
   ],
 };

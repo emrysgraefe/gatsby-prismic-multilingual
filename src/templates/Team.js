@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
-import { withPreview } from 'gatsby-source-prismic'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
@@ -12,12 +12,12 @@ import SliceRenderer from '../components/SliceRenderer'
 const Team = ({ data }) => {
   if (!data) return null
   const document = data.prismicTeam
-  const { lang, type, url } = document
+  const { lang, type, uid } = document
   const alternateLanguages = document.alternate_languages || []
   const activeDoc = {
     lang,
     type,
-    url,
+    uid,
     alternateLanguages,
   }
   const topMenu = data.prismicNavigation || {}
@@ -36,7 +36,7 @@ const Team = ({ data }) => {
   )
 }
 
-export default withPreview(Team)
+export default withPrismicPreview(Team)
 
 export const query = graphql`
 query TeamPageQuery($lang: String!) {
@@ -48,10 +48,9 @@ query TeamPageQuery($lang: String!) {
       uid
       type
       lang
-      url
     }
     lang
-    url
+    uid
     _previewable
     data {
       header_image {
@@ -68,7 +67,7 @@ query TeamPageQuery($lang: String!) {
         raw
       }
       body {
-        ... on PrismicTeamBodyTeam {
+        ... on PrismicTeamDataBodyTeam {
           id
           slice_type
           primary {
