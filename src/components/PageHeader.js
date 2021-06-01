@@ -30,6 +30,7 @@ const HeaderContentWrapper = styled.div`
 
 const PreviewHeaderWrapper = styled.div`
   background-image: url(${props => props.image.url});
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   min-height: 33vh;
