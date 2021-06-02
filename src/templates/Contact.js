@@ -75,7 +75,12 @@ const Contact = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(Contact)
+export default withPrismicPreview(Contact, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+    linkResolver
+  }
+])
 
 export const query = graphql`
 query ContactPageQuery($lang: String!) {

@@ -36,7 +36,12 @@ const Team = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(Team)
+export default withPrismicPreview(Team, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+    linkResolver
+  }
+])
 
 export const query = graphql`
 query TeamPageQuery($lang: String!) {

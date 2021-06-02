@@ -37,7 +37,12 @@ const Blog = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(Blog)
+export default withPrismicPreview(Blog, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+    linkResolver
+  }
+])
 
 export const query = graphql`
 query BlogPageQuery($lang: String!) {

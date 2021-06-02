@@ -32,7 +32,12 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(IndexPage)
+export default withPrismicPreview(IndexPage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+    linkResolver
+  }
+])
 
 
 export const query = graphql`
