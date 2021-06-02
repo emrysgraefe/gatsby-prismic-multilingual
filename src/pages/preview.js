@@ -9,6 +9,6 @@ const PreviewPage = () => {
 }
 
 export default withPrismicPreviewResolver(PreviewPage, {
-  repositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+  repositoryName: `${process.env.GATSBY_PRISMIC_CONTAINER_NAME}`,
   linkResolver
 })
