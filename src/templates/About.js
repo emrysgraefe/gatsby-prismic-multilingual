@@ -11,6 +11,8 @@ import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import SliceRenderer from '../components/SliceRenderer'
 
+const repositoryName = process.env.GATSBY_PRISMIC_CONTAINER_NAME
+
 const PageContent = styled.div`
   max-width: 65ch;
   margin: 120px auto;
@@ -45,7 +47,7 @@ const About = ({ data }) => {
 
 export default withPrismicPreview(About, [
   {
-    repositoryName: `${process.env.GATSBY_PRISMIC_CONTAINER_NAME}`,
+    repositoryName,
     linkResolver
   }
 ])

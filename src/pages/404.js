@@ -6,13 +6,14 @@ import {
 } from 'gatsby-plugin-prismic-previews'
 import { linkResolver } from '../utils/linkResolver'
 
-
 import Homepage from '../templates/Homepage'
 import About from '../templates/About'
 import Blog from '../templates/Blog'
 import BlogPost from '../templates/BlogPost'
 import Contact from '../templates/Contact'
 import Team from '../templates/Team'
+
+const respositoryName = process.env.GATSBY_PRISMIC_CONTAINER_NAME
 
 // styles
 const pageStyles = {
@@ -65,7 +66,7 @@ const NotFoundPage = () => {
 }
 
 export default withPrismicUnpublishedPreview(NotFoundPage, {
-  respositoryName: process.env.GATSBY_PRISMIC_CONTAINER_NAME,
+  respositoryName,
   linkResolver,
   componentResolver: componentResolverFromMap({
     homepage: Homepage,
