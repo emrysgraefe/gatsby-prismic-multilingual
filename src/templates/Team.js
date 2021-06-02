@@ -4,7 +4,7 @@ import * as React from 'react'
 import { graphql } from "gatsby"
 import {NavigationFragment} from '../components/TopMenu'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
-
+import linkResolver from '../utils/linkResolver'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import SliceRenderer from '../components/SliceRenderer'

@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import * as React from "react"
 import {NavigationFragment} from '../components/TopMenu'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import linkResolver from '../utils/linkResolver'
 import Layout from '../components/Layout'
 import SliceRenderer from '../components/SliceRenderer'
 import Seo from '../components/Seo'
