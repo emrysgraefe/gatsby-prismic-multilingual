@@ -22,6 +22,7 @@
     "gatsby-plugin-image": "^1.5.0",
     "gatsby-plugin-loadable-components-ssr": "^3.0.0",
     "gatsby-plugin-manifest": "^3.5.0",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-prismic-previews": "^4.0.0-beta.13",
     "gatsby-plugin-react-helmet": "^4.5.0",
     "gatsby-plugin-sharp": "^3.5.0",
