@@ -73,6 +73,7 @@ query HomePageQuery($lang: String!) {
                   gatsbyImageData(width: 2400)
                 }
               }
+              url
             }
             hero_content
             hero_title {

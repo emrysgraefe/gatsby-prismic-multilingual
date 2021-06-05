@@ -9,7 +9,9 @@ import ButtonLink from './ButtonLink'
 const HeaderWrapper = styled.div`
   min-height: 33vh;
   padding: 25vh 20px;
-  background-color: rgba(0,0,0,.4);
+  background-image: ${props => `linear-gradient(to bottom right, ${props.theme.colors.lightGrey}, ${props.theme.colors.darkerGrey}), url(${props.image.url})`};
+  background-size: cover;
+  background-blend-mode: multiply;
 `
 
 const HeaderContentWrapper = styled.div`
@@ -43,7 +45,7 @@ const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
     // const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
     return (
         <HeaderWrapper
-
+          image={image}
         >
           <HeaderContentWrapper>
             {!!label && 
