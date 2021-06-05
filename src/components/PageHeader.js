@@ -32,7 +32,7 @@ const PreviewHeaderWrapper = styled.div`
   background-repeat: no-repeat;
   min-height: 33vh;
   padding: 25vh 20px;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.4);
 `
 
 const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
