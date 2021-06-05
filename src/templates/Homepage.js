@@ -195,7 +195,7 @@ query HomePageQuery($lang: String!) {
                     featured_image {
                       localFile {
                         childImageSharp {
-                          gatsbyImageData(width: 600)
+                          gatsbyImageData(width: 300)
                         }
                       }
                     }

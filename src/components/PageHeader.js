@@ -1,12 +1,12 @@
 import * as React from "react"
-import { getImage } from 'gatsby-plugin-image'
-import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage from 'gatsby-background-image'
+// import { getImage } from 'gatsby-plugin-image'
+// import { convertToBgImage } from 'gbimage-bridge'
+// import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import ButtonLink from './ButtonLink'
 
-const HeaderWrapper = styled(BackgroundImage)`
+const HeaderWrapper = styled.div`
   min-height: 33vh;
   padding: 25vh 20px;
   background-color: rgba(0,0,0,.3);
@@ -40,12 +40,10 @@ const PreviewHeaderWrapper = styled.div`
 
 const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
   if (!!image.localFile) {
-    const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
+    // const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
     return (
         <HeaderWrapper
-          Tag="div"
-          {...bgImage}
-          preserveStackingContext
+
         >
           <HeaderContentWrapper>
             {!!label && 
