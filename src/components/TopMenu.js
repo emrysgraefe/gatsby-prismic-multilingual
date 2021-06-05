@@ -31,14 +31,14 @@ const NavLink = styled.div`
   margin: auto 0;
 
   a {
-    color: ${props => `${props.theme.colors.darkGrey}`};
+    color: ${props => `${props.theme.colors.darkerGrey}`};
     padding: 0 16px;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
 
     &:hover {
-      color: ${props => `${props.theme.colors.darkerGrey}`};
+      color: ${props => `${props.theme.colors.darkGrey}`};
       font-weight: bolder;
     }
   }
