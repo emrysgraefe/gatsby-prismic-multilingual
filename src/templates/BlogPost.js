@@ -77,7 +77,7 @@ query BlogPostQuery($lang: String!, $uid: String!) {
       featured_image {
         localFile {
           childImageSharp {
-            gatsbyImageData(width: 2400)
+            gatsbyImageData(width: 600)
           }
         }
       }

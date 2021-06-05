@@ -7,6 +7,8 @@ import ButtonLink from './ButtonLink'
 const HeaderWrapper = styled.section`
   min-height: 33vh;
   padding: 25vh 20px;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
 `
 
@@ -39,7 +41,11 @@ const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
   if (!!image.localFile) {
     return (
         <HeaderWrapper>
-        <GatsbyImage image={getImage(image.localFile.childImageSharp.gatsbyImageData)} alt="" />
+        <GatsbyImage 
+          image={getImage(image.localFile.childImageSharp.gatsbyImageData)}
+          alt=""
+          loading="eager"
+        />
           <HeaderContentWrapper>
             {!!label && 
               <RichText render={label.raw} />
