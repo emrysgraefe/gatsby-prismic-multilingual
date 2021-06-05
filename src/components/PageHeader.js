@@ -1,15 +1,13 @@
 import * as React from "react"
-import { getImage } from 'gatsby-plugin-image'
-import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage from 'gatsby-background-image'
+import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import ButtonLink from './ButtonLink'
 
-const HeaderWrapper = styled(BackgroundImage)`
+const HeaderWrapper = styled.section`
   min-height: 33vh;
   padding: 25vh 20px;
-  background-color: rgba(0,0,0,.4);
+  display: flex;
 `
 
 const HeaderContentWrapper = styled.div`
@@ -19,7 +17,6 @@ const HeaderContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
-  color: white;
   max-width: 65ch;
   text-align: center;
 
@@ -40,13 +37,9 @@ const PreviewHeaderWrapper = styled.div`
 
 const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
   if (!!image.localFile) {
-    const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
     return (
-        <HeaderWrapper
-          tag="section"
-          {...bgImage}
-          preserveStackingContext
-        >
+        <HeaderWrapper>
+        <GatsbyImage image={getImage(image.localFile.childImageSharp.gatsbyImageData)} alt="" />
           <HeaderContentWrapper>
             {!!label && 
               <RichText render={label.raw} />

@@ -70,7 +70,7 @@ query HomePageQuery($lang: String!) {
             background_image {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(width: 2400)
+                  gatsbyImageData(width: 600)
                 }
               }
             }
