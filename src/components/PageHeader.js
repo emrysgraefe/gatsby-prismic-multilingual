@@ -9,7 +9,7 @@ import ButtonLink from './ButtonLink'
 const HeaderWrapper = styled.div`
   min-height: 33vh;
   padding: 25vh 20px;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.4);
 `
 
 const HeaderContentWrapper = styled.div`

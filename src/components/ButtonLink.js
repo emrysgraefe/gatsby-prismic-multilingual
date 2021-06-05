@@ -3,12 +3,14 @@ import { Link } from 'gatsby'
 
 const ButtonLink = styled(Link)`
   font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   background-color: blueviolet;
   color: white;
   text-decoration: none;
   padding: 1rem 2rem;
   transition: all .2s ease-in-out;
+  
   &:hover {
     background-color: cyan;
     color: blueviolet;

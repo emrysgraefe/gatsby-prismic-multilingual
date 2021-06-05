@@ -61,20 +61,5 @@ module.exports = {
       }
     },
     `gatsby-plugin-loadable-components-ssr`,
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Montserrat`,
-            variants: [`100`, '700', '700', '800'],
-          },
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`]
-          },
-        ],
-      },
-    }
   ],
 };
