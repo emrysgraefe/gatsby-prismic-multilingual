@@ -1,17 +1,15 @@
 import * as React from "react"
-// import { getImage } from 'gatsby-plugin-image'
-// import { convertToBgImage } from 'gbimage-bridge'
-// import BackgroundImage from 'gatsby-background-image'
+import { getImage } from 'gatsby-plugin-image'
+import { convertToBgImage } from 'gbimage-bridge'
+import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import ButtonLink from './ButtonLink'
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled(BackgroundImage)`
   min-height: 33vh;
   padding: 25vh 20px;
-  background-image: ${props => `linear-gradient(to bottom right, ${props.theme.colors.lightGrey}, ${props.theme.colors.darkerGrey}), url(${props.image.url})`};
-  background-size: cover;
-  background-blend-mode: multiply;
+  background-color: rgba(0,0,0,.4);
 `
 
 const HeaderContentWrapper = styled.div`
@@ -42,10 +40,12 @@ const PreviewHeaderWrapper = styled.div`
 
 const Header = ({ image, title, label, content, buttonLabel, buttonUrl }) => {
   if (!!image.localFile) {
-    // const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
+    const bgImage = convertToBgImage(getImage(image.localFile.childImageSharp.gatsbyImageData))
     return (
         <HeaderWrapper
-          image={image}
+          tag="section"
+          {...bgImage}
+          preserveStackingContext
         >
           <HeaderContentWrapper>
             {!!label && 
