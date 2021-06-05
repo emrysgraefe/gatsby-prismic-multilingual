@@ -60,5 +60,6 @@ module.exports = {
         toolbar: 'new',
       }
     },
+    `gatsby-plugin-loadable-components-ssr`
   ],
 };

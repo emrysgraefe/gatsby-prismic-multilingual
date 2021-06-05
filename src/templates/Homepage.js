@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { graphql } from "gatsby"
 import * as React from "react"
-import {NavigationFragment} from '../components/TopMenu'
+import { NavigationFragment } from '../components/TopMenu'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import linkResolver from '../utils/linkResolver'
 import Layout from '../components/Layout'
